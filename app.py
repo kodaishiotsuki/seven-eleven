@@ -1,6 +1,7 @@
 from datetime import datetime,date
 from flask import Flask, render_template, redirect, request,url_for
 from flask_sqlalchemy import SQLAlchemy
+import random
 
 
 app = Flask(__name__)
@@ -81,6 +82,25 @@ def delete(id):  # delete関数にidを忘れずに！
     db.session.delete(post)  # DBの内容削除（保存はadd + commit）
     db.session.commit()
     return redirect('/')
+
+# おみくじページへの遷移
+@app.route('/fortune-teller')
+def fortune():
+    return render_template('fortune-teller.html')
+
+# おみくじをやって、結果を返す
+@app.route('/teller')
+def teller():
+    fortune = {
+    '大吉': '清水の舞台から飛び降りても無傷なレベル',
+    '中吉': '間違いなく棚からぼた餅が落ちてくるレベル',
+    '小吉': '長い物には巻かれた方がいいレベル',
+    '末吉': '地獄の沙汰も金次第なレベル',
+    '凶': '大凶よりはマシというレベル',
+    '大凶': '占い師も口をつぐむレベル'
+    }
+    luck, advice = random.choice(list(fortune.items()))
+    return render_template('fortune-teller.html',luck=luck, advice=advice)
 
 
 if __name__ == '__main__':
