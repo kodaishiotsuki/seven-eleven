@@ -1,0 +1,16 @@
+{%extends 'base.html'%} {%block body%}
+<!-- '占う'をクリックする,乱数処理の@appが動く、htmlに結果を返す、結果を表示する-->
+<h3>今日の運勢を占ってみよう<h3>
+        <form action='/teller'>
+            <button type='submit' class="btn btn-primary">占う</button>
+            <!-- <a role=button>占う</a> -->
+        </form>
+        {% if luck and advice %}
+        <p>あなたの今日の運勢は、{{luck}}です</p>
+        <p>{{advice}}</p>
+        {% else %}
+        <p>{{error}}</p>
+        {% endif %}
+        <!-- topへ戻る -->
+        <div><a href="/" role="button">TOP</a></div>
+        {%endblock%}

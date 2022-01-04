@@ -25,7 +25,7 @@ sleep(3)
 
 # ()の中はjsのcodeを書く,ややこしいのでマネして書こう
 height=1000
-while height < 1000:
+while height < 2000:
     driver.execute_script("window.scrollTo(0,{});".format(height))
     height+=100
     sleep(1)
