@@ -3,7 +3,7 @@ import pandas as pd
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
+# このパスは個人ごとに書き換える必要があります
 chrome_path='/Users/uchidatomoharu/Desktop/team-python2022/seven-eleven/chromedriver'
 
 options = Options()
@@ -25,7 +25,7 @@ sleep(3)
 
 # ()の中はjsのcodeを書く,ややこしいのでマネして書こう
 height=1000
-while height < 2000:
+while height < 1300:
     driver.execute_script("window.scrollTo(0,{});".format(height))
     height+=100
     sleep(1)
