@@ -4,7 +4,7 @@ import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 # このパスは個人ごとに書き換える必要があります
-chrome_path='/Users/uchidatomoharu/Desktop/team-python2022/seven-eleven/chromedriver'
+chrome_path='/Users/kodaishiotsuki/Desktop/SevenEleven/chromedriver'
 
 options = Options()
 options.add_argument('--incognito')
